@@ -5,6 +5,12 @@
   "scripts": {
     "build": "node build.js"
   },
+  "keywords": [
+    "definitions",
+    "typescript",
+    "open-api",
+    "swagger"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/2fd/open-api.d.ts.git"
