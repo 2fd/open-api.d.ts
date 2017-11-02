@@ -1,0 +1,24 @@
+{
+  "name": "open-api.d.ts",
+  "version": "3.0.0",
+  "description": "typescript object definitions for open-api Object Edit",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2fd/open-api.d.ts.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/2fd/open-api.d.ts/issues"
+  },
+  "homepage": "https://github.com/2fd/open-api.d.ts#readme",
+  "devDependencies": {
+    "camelcase": "^4.1.0",
+    "remark": "^8.0.0",
+    "uppercamelcase": "^3.0.0",
+    "word-wrap": "^1.2.3"
+  }
+}
