@@ -1,6 +1,6 @@
 {
   "name": "open-api.d.ts",
-  "version": "0.0.0",
+  "version": "3.0.0",
   "description": "typescript object definitions for open-api Object Edit",
   "scripts": {
     "build": "node build.js"
