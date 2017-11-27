@@ -352,7 +352,7 @@ export interface IServerObject {
    * A map between a variable name and its value.  The value is used for substitution 
    * in the server's URL template.
    */
-  variables?: Map<string,IServerVariableObject>;
+  variables?: { [name: string]: IServerVariableObject };
 }
 
 /**
@@ -568,47 +568,47 @@ export interface IComponentsObject {
   /**
    * An object to hold reusable [Schema Objects](#schemaObject).
    */
-   schemas?: Map<string,ISchemaObject | IReferenceObject>;
+   schemas?: { [name: string]: ISchemaObject | IReferenceObject };
 
   /**
    * An object to hold reusable [Response Objects](#responseObject).
    */
-   responses?: Map<string,IResponseObject | IReferenceObject>;
+   responses?: { [name: string]: IResponseObject | IReferenceObject };
 
   /**
    * An object to hold reusable [Parameter Objects](#parameterObject).
    */
-   parameters?: Map<string,IParameterObject | IReferenceObject>;
+   parameters?: { [name: string]: IParameterObject | IReferenceObject };
 
   /**
    * An object to hold reusable [Example Objects](#exampleObject).
    */
-   examples?: Map<string,IExampleObject | IReferenceObject>;
+   examples?: { [name: string]: IExampleObject | IReferenceObject };
 
   /**
    * An object to hold reusable [Request Body Objects](#requestBodyObject).
    */
-   requestBodies?: Map<string,IRequestBodyObject | IReferenceObject>;
+   requestBodies?: { [name: string]: IRequestBodyObject | IReferenceObject };
 
   /**
    * An object to hold reusable [Header Objects](#headerObject).
    */
-   headers?: Map<string,IHeaderObject | IReferenceObject>;
+   headers?: { [name: string]: IHeaderObject | IReferenceObject };
 
   /**
    * An object to hold reusable [Security Scheme Objects](#securitySchemeObject).
    */
-   securitySchemes?: Map<string,ISecuritySchemeObject | IReferenceObject>;
+   securitySchemes?: { [name: string]: ISecuritySchemeObject | IReferenceObject };
 
   /**
    * An object to hold reusable [Link Objects](#linkObject).
    */
-   links?: Map<string,ILinkObject | IReferenceObject>;
+   links?: { [name: string]: ILinkObject | IReferenceObject };
 
   /**
    * An object to hold reusable [Callback Objects](#callbackObject).
    */
-   callbacks?: Map<string,ICallbackObject | IReferenceObject>;
+   callbacks?: { [name: string]: ICallbackObject | IReferenceObject };
 }
 
 /**
@@ -1053,7 +1053,7 @@ export interface IOperationObject {
    * identify the callback object is an expression, evaluated at runtime, that 
    * identifies a URL to use for the callback operation.
    */
-  callbacks?: Map<string,ICallbackObject | IReferenceObject>;
+  callbacks?: { [name: string]: ICallbackObject | IReferenceObject };
 
   /**
    * Declares this operation to be deprecated. Consumers SHOULD refrain from usage of 
@@ -1492,7 +1492,7 @@ export interface IRequestBodyObject {
    * it.  For requests that match multiple keys, only the most specific key is 
    * applicable. e.g. text/plain overrides text/*
    */
-  content: Map<string,IMediaTypeObject>;
+  content: { [name: string]: IMediaTypeObject };
 
   /**
    * Determines if the request body is required in the request. Defaults to `false`.
@@ -1729,7 +1729,7 @@ export interface IMediaTypeObject {
    * the `example` object.  Furthermore, if referencing a `schema` which contains an 
    * example, the `examples` value SHALL override the example provided by the schema.
    */
-  examples?: Map<string,IExampleObject | IReferenceObject>;
+  examples?: { [name: string]: IExampleObject | IReferenceObject };
 
   /**
    * A map between a property name and its encoding information. The key, being the 
@@ -1737,7 +1737,7 @@ export interface IMediaTypeObject {
    * only apply to `requestBody` objects when the media type is `multipart` or 
    * `application/x-www-form-urlencoded`.
    */
-  encoding?: Map<string,IEncodingObject>;
+  encoding?: { [name: string]: IEncodingObject };
 }
 
 /**
@@ -1807,7 +1807,7 @@ export interface IEncodingObject {
    * ignored in this section. This property SHALL be ignored if the request body 
    * media type is not a `multipart`.
    */
-  headers?: Map<string,IHeaderObject | IReferenceObject>;
+  headers?: { [name: string]: IHeaderObject | IReferenceObject };
 
   /**
    * Describes how a specific property value will be serialized depending on its 
@@ -2063,7 +2063,7 @@ export interface IResponseObject {
    * case insensitive. If a response header is defined with the name 
    * `"Content-Type"`, it SHALL be ignored.
    */
-  headers?: Map<string,IHeaderObject | IReferenceObject>;
+  headers?: { [name: string]: IHeaderObject | IReferenceObject };
 
   /**
    * A map containing descriptions of potential response payloads. The key is a media 
@@ -2071,14 +2071,14 @@ export interface IResponseObject {
    * the value describes it.  For responses that match multiple keys, only the most 
    * specific key is applicable. e.g. text/plain overrides text/*
    */
-  content?: Map<string,IMediaTypeObject>;
+  content?: { [name: string]: IMediaTypeObject };
 
   /**
    * A map of operations links that can be followed from the response. The key of the 
    * map is a short name for the link, following the naming constraints of the names 
    * for [Component Objects](#componentsObject).
    */
-  links?: Map<string,ILinkObject | IReferenceObject>;
+  links?: { [name: string]: ILinkObject | IReferenceObject };
 }
 
 /**
@@ -2405,7 +2405,7 @@ export interface ILinkObject {
    * the [parameter location](#parameterIn) `[{in}.]{name}` for operations that use 
    * the same parameter name in different locations (e.g. path.id).
    */
-  parameters?: Map<string,any | RunTimeExpression>;
+  parameters?: { [name: string]: any | RunTimeExpression };
 
   /**
    * A literal value or [{expression}](#runtimeExpression) to use as a request body 
@@ -3237,7 +3237,7 @@ export interface IDiscriminatorObject {
    * An object to hold mappings between payload values and schema names or 
    * references.
    */
-   mapping?: Map<string,string>;
+   mapping?: { [name: string]: string };
 }
 
 /**
@@ -3860,7 +3860,7 @@ export interface IOAuthFlowObject {
    * The available scopes for the OAuth2 security scheme. A map between the scope 
    * name and a short description for it.
    */
-  scopes: Map<string,string>;
+  scopes: { [name: string]: string };
 }
 
 /**

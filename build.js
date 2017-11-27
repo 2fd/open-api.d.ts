@@ -84,7 +84,7 @@ function getCodeType(typeToke) {
                     mapValueToken.children[0].value.trim().slice(1).trim()
             }
 
-            return `Map<${getCodeType(mapKeyToken)},${getCodeType(mapValueToken)}>`;
+            return `{ [name: ${getCodeType(mapKeyToken)}]: ${getCodeType(mapValueToken)} }`;
     
         default:
             const groupTokens = typeToke.children
